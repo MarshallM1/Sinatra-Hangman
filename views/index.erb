@@ -1,0 +1,29 @@
+<html>
+  <head></head>
+  <body>
+  <h1>
+    Welcome to Hangman!
+  </h1>
+  <h2>
+    You have <%= @num_guesses %> guess(es) remaining
+  </h2>
+  <h2>
+    <%= @board.split(//).join(" ") %>
+  </h2>
+  <h3>
+    <%= @wrong_guesses.join(" ") %>
+  </h3>
+
+  	<form method="POST" action="/">
+      <input type='text' name='guess' />
+    </form>
+    <p>
+      <br>
+      <%= @message %>
+    </p>
+    <p><a id="link" href="/newgame">Start a new game?</a></p>
+  </body>
+</html>
+
+
+
