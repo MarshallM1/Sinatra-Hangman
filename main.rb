@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 
+#todo
+# Add styles
+# Prep for heroku deployment
+
 enable :sessions
 
 get '/' do
@@ -63,7 +67,9 @@ helpers do
 	def check(guess)
 		guess.downcase!
 		#check if guess is word or char
-		if guess.length == 1
+		if guess.length == 0
+			session[:message] = "Please enter a guess"
+		elsif guess.length == 1
 			#find all the matching chars in the word
 			#check if character has been quessed before
 			if session[:used_letters].include? guess
